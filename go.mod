@@ -1,3 +1,3 @@
-module github.com/kimdre/learning-go
+module github.com/kimdre/investment-calculator
 
 go 1.22.2
