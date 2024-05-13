@@ -15,11 +15,16 @@ func main() {
 		userLastName,
 		userBirthdate,
 	)
-	
+
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+
+	admin := user.NewAdmin("test@email.com", "p4ssw0rd")
+	admin.OutputUserDetails()
+	admin.ClearUserName()
+	admin.OutputUserDetails()
 
 	appUser.OutputUserDetails()
 	appUser.ClearUserName()
