@@ -1,15 +1,55 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
 
-type str string
+	"example.com/note/note"
+)
 
-func (text str) log() {
-	fmt.Println(text)
+func main() {
+	title, content := getNoteData()
+
+	userNote, err := note.New(title, content)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+
+	userNote.Display()
+	err = userNote.Save()
+
+	if err != nil {
+		fmt.Println("Saving the note failed.")
+		return
+	}
+
+	fmt.Println("Saving the note succeeded!")
 }
 
-func main()  {
-	var name str = "Kim"
+func getNoteData() (string, string) {
+	title := getUserInput("Note title:")
+	content := getUserInput("Note content:")
 
-	name.log()
+	return title, content
+}
+
+func getUserInput(prompt string) string {
+	fmt.Printf("%v ",prompt)
+	
+	reader := bufio.NewReader(os.Stdin)
+	text, err := reader.ReadString('\n')
+
+	if err != nil {
+		return ""
+	}
+
+	text = strings.TrimSuffix(text, "\n")
+	text = strings.TrimSuffix(text, "\r")
+
+	return text
 }
