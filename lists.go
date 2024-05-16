@@ -12,6 +12,9 @@ func main() {
 
 	// fmt.Println(prices[2])
 
-	featuredPrices := prices[1:3]
-	fmt.Println(featuredPrices)
+	featuredPrices := prices[1:]
+	higlightedPrices := featuredPrices[:1]
+	fmt.Println(higlightedPrices)
+	fmt.Println(len(higlightedPrices), cap(higlightedPrices))
+
 }
