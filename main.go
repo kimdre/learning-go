@@ -39,6 +39,8 @@ func main() {
 
 	todo, err := todo.New(todoText)
 
+	printSomething(todo)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -66,7 +68,14 @@ func main() {
 }
 
 func printSomething(value any) {
-	fmt.Println(value)
+	switch value.(type) {
+	case int:
+		fmt.Println("Interger:", value)
+	case float64:
+		fmt.Println("Float:", value)
+	case string:
+		fmt.Println("String:", value)
+	}
 }
 
 func outputData(data outputable) error {
