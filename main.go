@@ -26,4 +26,8 @@ func main()  {
 	courseRating["test"] = 2
 
 	courseRating.output()
+
+	for index, value := range userNames {
+		fmt.Println(index, value)
+	}
 }
