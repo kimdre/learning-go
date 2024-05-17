@@ -30,4 +30,8 @@ func main()  {
 	for index, value := range userNames {
 		fmt.Println(index, value)
 	}
+
+	for key, value := range courseRating {
+		fmt.Println(key, value)
+	}
 }
