@@ -1,37 +1,29 @@
 package main
 
-import "fmt"
-
-type floatMap map[string]float64
-
-func (m floatMap) output() {
-	fmt.Println(m)
-}
+import (
+	"fmt"
+)
 
 func main()  {
-	userNames := make([]string, 2, 5) // 2: initial array length, 5: capacity/max array length
+	numbers := []int{1,2,3,4}
+	doubled := transformNumbers(&numbers, double)
+	tripled := transformNumbers(&numbers, triple)
+	fmt.Println(doubled, tripled)
+}
 
-	userNames[0] = "Julie"
-	// userNames[6] = "Luka"  <-- Would crash because out of bounce (higher than capacity defined in make() -> 5)
-
-	userNames = append(userNames, "Kim")
-	userNames = append(userNames, "Tobi")
-
-	fmt.Println(userNames)
-
-	courseRating := make(floatMap, 2)
-
-	courseRating["go"] = 4.7
-	courseRating["react"] = 4.8
-	courseRating["test"] = 2
-
-	courseRating.output()
-
-	for index, value := range userNames {
-		fmt.Println(index, value)
+func transformNumbers(numbers *[]int, transform func(int) int) []int {
+	dNumbers := []int{}
+	for _, val := range *numbers {
+		dNumbers = append(dNumbers, transform(val))
 	}
 
-	for key, value := range courseRating {
-		fmt.Println(key, value)
-	}
+	return dNumbers
+}
+
+func double(number int) int {
+	return number * 2
+}
+
+func triple(number int) int {
+	return number * 3
 }
