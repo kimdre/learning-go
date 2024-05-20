@@ -1,0 +1,10 @@
+PUT http://localhost:8080/events/8
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJleHAiOjE3MTYyMzQ3NzQsInVzZXJJZCI6Mn0.Cg7DrLYr2VUbOjZjGz3cBB5Dybdbz2ydxV5DVJUmfKc
+
+{
+    "name": "Other event",
+    "description": "Another event",
+    "location": "Another location",
+    "dateTime": "2030-07-13T8:45:00.000Z"
+}
